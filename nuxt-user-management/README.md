@@ -73,13 +73,3 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-
-## Important Links:
-
-https://nuxt.com/modules
-https://nuxt.com/modules?category=CSS
-https://nuxt.com/modules?category=Libraries
-https://nuxt.com/modules/tailwindcss
-https://www.builder.io/
-https://supabase.com/dashboard/projects
