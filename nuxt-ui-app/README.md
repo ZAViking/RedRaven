@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# Nuxt UI Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Look at [Nuxt docs](https://nuxt.com/docs/getting-started/introduction) and [Nuxt UI docs](https://ui.nuxt.com) to learn more.
 
 ## Setup
 
@@ -73,15 +73,3 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-
-
-## Important Links:
-
-https://nuxt.com/modules
-https://nuxt.com/modules?category=CSS
-https://nuxt.com/modules?category=Libraries
-https://nuxt.com/modules/tailwindcss
-https://www.builder.io/
-https://supabase.com/dashboard/projects
-https://www.youtube.com/watch?v=yO-JMkjc4oo
-https://ui.nuxt.com/components/notification

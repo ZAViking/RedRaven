@@ -9,11 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
     "@nuxt/ui": "^2.18.4",
-    "nuxt": "^3.13.0",
-    "supabase": "^1.190.0",
-    "toast": "^0.5.4",
-    "vue": "latest"
+    "nuxt": "^3.12.4"
   }
 }
