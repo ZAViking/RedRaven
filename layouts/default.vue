@@ -3,7 +3,7 @@ import Index from '~/pages/index.vue';
 </script>
 
 <template>
-    <!-- <AppHeader />
-    <slot />
-    <AppFooter /> -->
-</template>
+    <div>
+      <slot />
+    </div>
+  </template>

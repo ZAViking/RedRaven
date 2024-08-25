@@ -83,3 +83,4 @@ https://nuxt.com/modules?category=Libraries
 https://nuxt.com/modules/tailwindcss
 https://www.builder.io/
 https://supabase.com/dashboard/projects
+https://www.youtube.com/watch?v=yO-JMkjc4oo
