@@ -1,8 +1,7 @@
 <template>
+    <AppHeader />
     <Navbar />
-    <AppAlert>
-      This is an auto-imported component
-    </AppAlert>
+    <AppFooter />
 </template>
 
 <script setup lang="ts">

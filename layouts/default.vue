@@ -6,4 +6,5 @@ import Index from '~/pages/index.vue';
     <div>
       <slot />
     </div>
-  </template>
+    <AppFooter />
+</template>
