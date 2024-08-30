@@ -1,30 +1,56 @@
 <template>
-  <div>
-    <AppHeader />
-    <NuxtLayout>
-      <Navbar />
-      <NuxtPage />
-      <!-- <AppFooter /> -->
-    </NuxtLayout> 
-    
-  </div>
-
-  <ul>
-    <li v-for="country in countries" :key="country.id">{{ country.name }}</li>
-  </ul>
+  <!-- <title>SwitchAssist</title> -->
+  <NuxtLayout>
+    <NuxtPage class="bg-[#f0f0f0] dark:bg-[#121212]" />
+  </NuxtLayout>
 </template>
 
-<script setup>
-    import { createClient } from '@supabase/supabase-js'
-    const supabase = createClient('https://ytiebogxacxkojflncmo.supabase.co', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0aWVib2d4YWN4a29qZmxuY21vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQyMzE4NzEsImV4cCI6MjAzOTgwNzg3MX0.ZaefiBZF7fdA3RtMCd3InnQQ9gJCZzW7bRNU_yumjYE')
-    const countries = ref([])
-
-    async function getCountries() {
-      const { data } = await supabase.from('countries').select()
-      countries.value = data
+<style>
+  .layout-enter-active,
+  .layout-leave-active {
+    transition: all 0.4s;
   }
+  .layout-enter-from,
+  .layout-leave-to {
+    filter: grayscale(1);
+  }
+</style>
 
-onMounted(() => {
-  getCountries()
-})
+<script setup lang="ts">
+// For general achievements
+const RedRavenColours = [
+  "#FF5302",
+  "#021C40",
+  "#FF3801",
+  "#035BCC",
+  "#3076D8",
+  "#FAC464",
+];
+
+// For national holidays that don't really have their own colours
+const SouthAfricanColours = [
+  "#FFFFFF",
+  "#002395",
+  "#DE3831",
+  "#007A4E",
+  "#FFB614",
+  "#000000",
+];
+
+// For birthdays / New Years
+const RainbowColours = [
+  "#ff0000",
+  "#ffa500",
+  "#ffff00",
+  "#008000",
+  "#0000ff",
+  "#4b0082",
+  "#ee82ee",
+];
+
+// For Christmas
+const ChristmasColours = ["#ffffff", "#ff0000"];
+
+// For Valentines
+const ValentinesColours = ["#ffffff", "#ff0000", "#FFC0CB"];
 </script>

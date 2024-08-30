@@ -1,53 +1,33 @@
-<script setup lang="ts">
-import { createClient } from '@supabase/supabase-js'
-import type { FormError, FormSubmitEvent } from '#ui/types'
-import { useRouter } from 'vue-router'
+<script setup="ts">
+    // import type { FormError, FormSubmitEvent } from '#ui/types'
+    import { ref, reactive } from 'vue'
+    import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl="https://ytiebogxacxkojflncmo.supabase.co"
-const supabaseKey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl0aWVib2d4YWN4a29qZmxuY21vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQyMzE4NzEsImV4cCI6MjAzOTgwNzg3MX0.ZaefiBZF7fdA3RtMCd3InnQQ9gJCZzW7bRNU_yumjYE"
+    // export const supabase = createClient(supabaseUrl, supabaseKey)
 
-// Initialize Supabase client (use your own Supabase URL and Key)
-// const supabaseUrl = process.env.SUPABASE_URL
-// const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
-
-const router = useRouter()
-
-const state = reactive({
-  email: '',
-  password: '',
-  error: ''
-})
-
-const validate = (state: any): FormError[] => {
-  const errors = []
-  if (!state.email) errors.push({ path: 'email', message: 'Required' })
-  if (!state.password) errors.push({ path: 'password', message: 'Required' })
-  return errors
-}
-
-async function onSubmit(event: FormSubmitEvent<any>) {
-  event.preventDefault()
-  const { email, password } = state
-
-  try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
+    const state = reactive({
+      email: '',
+      password: '',
+      error: ''
     })
 
-    if (error) {
-      state.error = error.message
-    } else {
-      state.error = ''
-      // Redirect to the dashboard or home page after successful login
-      router.push('/dashboard')
-    }
-  } catch (error) {
-    console.error('Error logging in:', error)
-    state.error = 'An error occurred during login'
-  }
-}
+    const supabaseUrl = useRuntimeConfig().supabaseUrl
+    const supabaseAnonKey = useRuntimeConfig().supabaseAnonKey
+
+    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+
+    // const supabase = createClient(
+    //   this.$config.supabaseUrl,
+    //   this.$config.supabaseAnonKey
+    // )
+
+
+    // export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+    // console.log('Supabase URL:', process.env.SUPABASE_URL);
+    // console.log('Supabase Key:', process.env.SUPABASE_ANON_KEY);
+
 </script>
 
 <template>

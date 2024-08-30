@@ -1,15 +1,31 @@
 <template>
-    <AppHeader />
-    <Navbar />
-    <AppFooter />
-</template>
+    <div class="">
+        <AppFooter />
+    </div>
+  </template>
+  
+  <script setup lang="js">
+  
+  definePageMeta({
+    layout: 'default',
+    title: 'Red Raven | Home',
+  })
+  
+  useHead({
+    title: 'Red Raven | Home',
+  })
 
-<script setup lang="ts">
-</script>
-
-<style scoped>
-/* Add your styles here */
-    h1 {
-    color: #2c3e50;
+  const router = useRouter()
+  const userPreferencesCookie = useCookie('user-preferences')
+  const user = useSupabaseUser()
+  const supabase = useSupabaseClient()
+  
+  onMounted(async () => {
+    if (user.value === undefined) {
+      router.push('/login')
     }
-</style>
+  })
+  </script>
+  
+  <style scoped></style>
+  

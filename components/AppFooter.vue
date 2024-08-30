@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer">
+    <footer class="w-full dark:bg-neutral-800 p-1 dark:text-white text-center bottom-0 fixed select-none">
         <p>&copy; 2024 Car and Category Search. All rights reserved.</p>
         <p>&trade; by Duncan Smokey.</p>
     </footer>

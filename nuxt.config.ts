@@ -1,38 +1,65 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
+
   modules: [
-    '@nuxtjs/supabase',
-    '@nuxt/ui'
+    "@nuxt/ui",
+    "@nuxtjs/supabase",
+    // "@nuxt/image",
+    // "@nuxt/scripts",
+    // "@vueuse/nuxt",
+    "@nuxtjs/color-mode"
+    // '@morev/vue-transitions/nuxt'
   ],
-  // auth: {
-  //   strategies: {
-  //     discord: {
-  //       clientId: '1247723763232018484',
-  //       clientSecret: 'MsD3a0BD8Zj0s3yiJokanV_X15OjKJ7Q'
-  //     },
-  //   }
-  // },
-  css: ['@/assets/main.css'],
+
   components: [
     {
       path: '~/components',
       pathPrefix: false,
     },
   ],
+
+  css: ['@/assets/css/main.css'],
+
+  ui: {
+    primary: 'green',
+    gray: 'cool',
+    themes: ['dark', 'light'],
+    icons: ["mdi", "simple-icons", "line-md", "heroicons"]
+  },
+
+  colorMode: {
+    preference: "dark",
+  },
+
+  devServer: {
+    // https: {
+      // cert: "./certs/d9380e05c8e024c7.crt",
+      // key: "./certs/privkey.key",
+    // },
+    // port: 8080,
+    // host: "0.0.0.0",
+  },
+
   supabase: {
-    // Options
-    // ['@/utils/supabase/'],
+    supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+    supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+    redirectOptions: {
+      login: "/login",
+      callback: "/confirm",
+      cookieRedirect: true,
+    },
   },
-  runtimeConfig: {
-    // The private keys which are only available server-side
-    apiSecret: '123',
-    // Keys within public are also exposed client-side
-    public: {
-      apiBase: '/api'
-    }
-  },
+  // POES WEET NIET WAT DIT IS
+
+  // runtimeConfig: {
+  //   // Keys within public are also exposed client-side
+  //   public: {
+  //     supabaseUrl: process.env.SUPABASE_URL,
+  //     supabaseKey: process.env.SUPABASE_KEY,
+  //   },
+  // },
   $production: {
     routeRules: {
       '/**': { isr: true }
