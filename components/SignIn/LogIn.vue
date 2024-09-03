@@ -83,7 +83,7 @@
     const onSubmit = () => {
     if (validate()) {
         // Mock credentials for testing
-        const mockEmail = 'Th3Spamm3r001@gmail.com';
+        const mockEmail = 'Th3Ghost@gmail.com';
         const mockPassword = 'R3dR@ven@123';
 
         if (state.email === mockEmail && state.password === mockPassword) {
