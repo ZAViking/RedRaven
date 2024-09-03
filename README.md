@@ -74,6 +74,9 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
+## Supabase commands
+npm install @nuxtjs/supabase --save-dev
+
 
 ## Important Links:
 

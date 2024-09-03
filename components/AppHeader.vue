@@ -1,19 +1,100 @@
 <template>
-    <h1>Red Raven RP</h1>
+  <header class="header flex justify-between items-center p-4">
+    <span class="text-lg font-semibold">Red Raven RP</span>
+    <ColorToggle />
+  </header>
 </template>
 
-<style lang="css">
-h1 {
+<script lang="js">
+import ColorToggle from './ColorToggle.vue';
+
+// import { filename } from 'pathe/utils'
+//   const supabase = useSupabaseClient()
+//   const user = useSupabaseUser()
+
+//   const colorMode = useColorMode()
+//   const glob = import.meta.glob('@/assets/images/*.png', { eager: true })
+//   const images = Object.fromEntries(
+//     Object.entries(glob).map(([key, value]) => [filename(key), value.default])
+//   )
+//   const events = ref([])
+//   const clients = ref([])
+//   let clientObject = {}
+//   const popoverOpen = ref(false)
+//   const userPreferencesCookie = useCookie('user-preferences')
+
+//   const isDark = computed ({
+//     get () {
+//       return colorMode.value === 'dark'
+//     },
+//     set () {
+//       colorMode.preference = colorMode.value === 'dark' ? 'light' : 'dark'
+//     }
+//   })
+
+//   onMounted(() => {
+//     getClients()
+
+//     // Check if the userPreferences cookie is created by checking if it returns an empty object
+//     console.log("UserPrefsCookie: ", userPreferencesCookie.value)
+
+//     // Check if the object is empty
+//     if (userPreferencesCookie.value == undefined) {
+
+//       // Get the metadata
+//       const userMetaData = user.value?.user_metadata
+
+//       // Check if the userPreferences metadata is created before trying to load it
+//       if (userMetaData && 'userPreferences' in userMetaData) {
+
+//         // Load the user prefs into a cookie
+//         userPreferencesCookie.value = userMetaData.userPreferences
+//       } else {
+
+//         // Add a user pref default object to the user metadata
+//         createUserPrefs()
+
+//         // Add a user pref default object to the user-preferences cookie
+//         userPreferencesCookie.value = {
+//           colorMode: 'dark',
+//           checksClient: ['1of1'],
+//           favoriteLinks: [],
+//         }
+//       }
+//     } else {
+//       console.log("The user preferences cookie was successfully loaded")
+//     }
+//   })
+</script>
+
+<style>
+  .header {
     background-color: #444;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
-    text-align: center;
-}
+    padding: 15px 0;
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    width: 100%; /* Ensure the footer takes full width */
+    position: bottom; /* Sticky footer at the bottom */
+    bottom: 0;
+  }
 
-header h1 {
-    margin-bottom: 10px;
-    font-size: 2.5em;
-}
+  img {
+    width: 300px; 
+    height: auto; 
+    position: relative; 
+    z-index: 1000; 
+  }
 
+  .circle-hover {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    cursor: pointer;
+    z-index: 1000; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>
