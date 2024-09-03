@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue';
+  import { ref, onMounted, onUnmounted, computed } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
   // import { useSupabaseClient, useSupabaseUser } from '@supabase/js';
   // import { useToast } from 'vue-toastification';
@@ -40,6 +40,15 @@
   const devLinks = [
     { label: 'Dev Menu', icon: 'i-heroicons-code-bracket', to: '/dev' },
   ];
+
+  // Simulate user data, which can be replaced with Supabase integration later
+  const user = ref({
+    name: 'Duncan Smokey',  // Default user name
+    email: 'johndoe@example.com',  // Default user email
+  });
+
+  // Computed property for welcome message
+  const welcomeMessage = computed(() => `Welcome, ${user.value.name}`);
 
 // Logout function
 // const logout = async () => {
@@ -114,8 +123,8 @@
         <!-- Header slot with title "Red Raven" -->
         <template #header>
           <div class="flex justify-between items-center p-4">
-            <h2 class="text-lg font-semibold">Red Raven</h2>
-                      <!-- Logout Button -->
+            <h2 class="text-lg font-semibold">{{ welcomeMessage }}</h2>
+            <!-- Logout Button -->
             <UButton 
               color="gray" 
               variant="solid" 

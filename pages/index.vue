@@ -1,8 +1,6 @@
 <template>
-    <div class="">
-        <AppFooter />
-    </div>
-  </template>
+  <LogIn />
+</template>
   
   <script setup lang="js">
   
@@ -17,8 +15,8 @@
 
   const router = useRouter()
   const userPreferencesCookie = useCookie('user-preferences')
-  const user = useSupabaseUser()
-  const supabase = useSupabaseClient()
+  // const user = useSupabaseUser()
+  // const supabase = useSupabaseClient()
   
   onMounted(async () => {
     if (user.value === undefined) {
