@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   modules: [
     "@nuxt/ui",
-    "@nuxtjs/supabase",
+    // "@nuxtjs/supabase",
     // "@nuxt/image",
     // "@nuxt/scripts",
     // "@vueuse/nuxt",
@@ -23,14 +23,14 @@ export default defineNuxtConfig({
   css: ['@/assets/css/main.css'],
 
   ui: {
-    primary: 'green',
+    primary: 'gray',
     gray: 'cool',
     themes: ['dark', 'light'],
     icons: ["mdi", "simple-icons", "line-md", "heroicons"]
   },
 
   colorMode: {
-    preference: "dark",
+    preference: "light",
   },
 
   devServer: {
@@ -42,15 +42,15 @@ export default defineNuxtConfig({
     // host: "0.0.0.0",
   },
 
-  supabase: {
-    supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
-    supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
-    redirectOptions: {
-      login: "/login",
-      callback: "/confirm",
-      cookieRedirect: true,
-    },
-  },
+  // supabase: {
+  //   supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+  //   supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+  //   redirectOptions: {
+  //     login: "/login",
+  //     callback: "/confirm",
+  //     cookieRedirect: true,
+  //   },
+  // },
   // POES WEET NIET WAT DIT IS
 
   // runtimeConfig: {

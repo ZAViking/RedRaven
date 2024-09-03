@@ -1,11 +1,13 @@
 <template>
-  <!-- <img src="~/assets/images/redravenName_05KB.png" /> -->
-  <header class="header">
-    Red Raven RP
+  <header class="header flex justify-between items-center p-4">
+    <span class="text-lg font-semibold">Red Raven RP</span>
+    <ColorToggle />
   </header>
 </template>
 
 <script lang="js">
+import ColorToggle from './ColorToggle.vue';
+
 // import { filename } from 'pathe/utils'
 //   const supabase = useSupabaseClient()
 //   const user = useSupabaseUser()

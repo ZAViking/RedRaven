@@ -1,176 +1,168 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
-// import { useSupabaseClient, useSupabaseUser } from '@supabase/js';
-// import { useToast } from 'vue-toastification';
+  import { ref, onMounted, onUnmounted } from 'vue';
+  import { useRoute, useRouter } from 'vue-router';
+  // import { useSupabaseClient, useSupabaseUser } from '@supabase/js';
+  // import { useToast } from 'vue-toastification';
 
-// State references
-const isOpen = ref(false);
-const isAdmin = ref(false);
-const isDev = ref(false);
-const route = useRoute();
-const router = useRouter();
-const supabase = useSupabaseClient();
-const user = useSupabaseUser();
-const toast = useToast();
+  // State references
+  const isOpen = ref(false);
+  const isAdmin = ref(false);
+  const isDev = ref(false);
+  const route = useRoute();
+  const router = useRouter();
+  // const supabase = useSupabaseClient();
+  // const user = useSupabaseUser();
+  const toast = useToast();
 
-// Navigation links
-const links = [
-  { label: user.value?.user_metadata.full_name || 'User', icon: '', to: '/' },
-  { label: 'Home', icon: 'i-heroicons-home', to: '/' },
-  { label: 'Documentation', icon: 'i-heroicons-check-badge', to: '/documentation' },
-  { label: 'Whitelist Application', icon: 'i-heroicons-check-badge', to: '/whitelist' },
-  { label: 'Fast Customs', icon: 'i-heroicons-calendar', to: '/fast-customs' },
-];
+  // Navigation links
+  const navigationLinks = [
+    { label: 'Home', icon: 'i-heroicons-home', to: '/dashboard' },
+  ];
 
-const adminLinks = [
-  { label: 'Admin Menu', icon: 'i-heroicons-user-group', to: '/admin' },
-];
+  const businessLinks = [
+    { label: 'Police SOP', icon: 'i-heroicons-calendar', to: '/' },
+    { label: 'EMS SOP', icon: 'i-heroicons-calendar', to: '/' },
+    { label: 'Fast Customs', icon: 'i-heroicons-calendar', to: '/fast-customs' },
+    { label: 'Burger Shop', icon: 'i-heroicons-calendar', to: '/' },
+  ];
 
-const devLinks = [
-  { label: 'Dev Menu', icon: 'i-heroicons-code-bracket', to: '/dev' },
-];
+  const applicationLinks = [
+    { label: 'Apply for Whitelisting', icon: 'i-heroicons-book-open', to: '/' },
+    { label: '1 of 1 Cars Terms and Conditions', icon: 'i-heroicons-book-open', to: '/documents/1of1tandc' },
+  ];
 
-// Keyboard shortcuts
-defineShortcuts({
-  m: () => (isOpen.value = !isOpen.value),
-  h: { whenever: [isOpen], handler: () => { router.push('/'); isOpen.value = false; } },
-  c: { whenever: [isOpen], handler: () => { router.push('/'); isOpen.value = false; } },
-  s: { whenever: [isOpen], handler: () => { router.push('/'); isOpen.value = false; } },
-  a: { whenever: [isOpen], handler: () => { 
-    if (isAdmin.value) {
-      router.push('/admin');
-    } else {
-      toast.add({ 
-        title: 'No Admin Rights', 
-        description: "Oi, funny guy, you're not an admin, you can't go there...", 
-        color: 'gray', 
-        icon: 'i-heroicons-information-circle', 
-        timeout: 5000 
-      });
-    }
-    isOpen.value = false; 
-  }},
-  d: { whenever: [isOpen], handler: () => { 
-    if (isDev.value) {
-      router.push('/dev');
-    } else {
-      toast.add({ 
-        title: 'No Dev Rights', 
-        description: "Oi, funny guy, you're not a dev, you can't go there...", 
-        color: 'gray', 
-        icon: 'i-heroicons-information-circle', 
-        timeout: 5000 
-      });
-    }
-    isOpen.value = false; 
-  }},
-  e: { whenever: [isOpen], handler: () => { router.push('/email-generator'); isOpen.value = false; } },
-});
+  const adminLinks = [
+    { label: 'Whitelist Application Docs', icon: 'i-heroicons-book-open', to: '/whitelist' },
+    { label: 'Business Application Docs', icon: 'i-heroicons-book-open', to: '/' },
+    { label: 'Gang Application Docs', icon: 'i-heroicons-book-open', to: '/' },
+  ];
+
+  const devLinks = [
+    { label: 'Dev Menu', icon: 'i-heroicons-code-bracket', to: '/dev' },
+  ];
 
 // Logout function
-const logout = async () => {
-  console.log('Logging out');
-  const { error } = await supabase.auth.signOut();
-  if (error) {
-    console.error('Error logging out:', error.message);
-  } else {
-    console.log('Logged out successfully');
-    router.push('/login');
-  }
-};
+// const logout = async () => {
+//   console.log('Logging out');
+//   const { error } = await supabase.auth.signOut();
+//   if (error) {
+//     console.error('Error logging out:', error.message);
+//   } else {
+//     console.log('Logged out successfully');
+//     router.push('/login');
+//   }
+// };
 
 // Get admin status
-const getAdminStatus = async () => {
-  if (!user.value) {
-    isAdmin.value = false;
-    isDev.value = false;
-    return;
-  }
+// const getAdminStatus = async () => {
+//   if (!user.value) {
+//     isAdmin.value = false;
+//     isDev.value = false;
+//     return;
+//   }
 
-  const { data, error } = await supabase
-    .from('profiles')
-    .select('role')
-    .eq('id', user.value.id)
-    .single();
+//   const { data, error } = await supabase
+//     .from('profiles')
+//     .select('role')
+//     .eq('id', user.value.id)
+//     .single();
 
-  if (error) {
-    console.error('Error fetching admin status:', error);
-    isAdmin.value = false;
-    isDev.value = false;
-    return;
-  }
+//   if (error) {
+//     console.error('Error fetching admin status:', error);
+//     isAdmin.value = false;
+//     isDev.value = false;
+//     return;
+//   }
 
-  if (data?.role === 'admin' || data?.role === 'dev') {
-    isAdmin.value = true;
-    if (data.role === 'dev') {
-      isDev.value = true;
-    }
-  } else {
-    isAdmin.value = false;
-    isDev.value = false;
-  }
-};
+//   if (data?.role === 'admin' || data?.role === 'dev') {
+//     isAdmin.value = true;
+//     if (data.role === 'dev') {
+//       isDev.value = true;
+//     }
+//   } else {
+//     isAdmin.value = false;
+//     isDev.value = false;
+//   }
+// };
 
 // Lifecycle hooks
-onMounted(() => {
-  getAdminStatus();
-  const interval = setInterval(getAdminStatus, 90000);
+// onMounted(() => {
+//   getAdminStatus();
+//   const interval = setInterval(getAdminStatus, 90000);
 
-  onUnmounted(() => {
-    clearInterval(interval);
-  });
-});
+//   onUnmounted(() => {
+//     clearInterval(interval);
+//   });
+// });
 </script>
 
 <template>
   <div>
-    <div class="button-container">
-      <UButton icon="i-heroicons-bars-3" label="" @click="isOpen = true" />
+    <!-- Button to open the slideover -->
+    <div class="pt-4 flex justify-end pr-4">
+      <UButton 
+      color="red"
+      icon="i-heroicons-bars-3" 
+      label="" 
+      @click="isOpen = true" />
     </div>
+    <!-- Slideover component bound to 'isOpen' -->
     <USlideover v-model="isOpen">
-      <div class="p-4 flex-1">
-        <!-- Close button for the slideover -->
-        <UButton
-          color="gray"
-          variant="ghost"
-          size="sm"
-          icon="i-heroicons-x-mark-20-solid"
-          class="flex sm:hidden absolute end-5 top-5 z-10"
-          square
-          padded
-          @click="isOpen = false"
-        />
+      <UCard
+        class="flex flex-col flex-1"
+        :ui="{ body: { base: 'flex-1' }, ring: '', divide: 'divide-y divide-gray-100 dark:divide-gray-800' }">
+        <!-- Header slot with title "Red Raven" -->
+        <template #header>
+          <div class="flex justify-between items-center p-4">
+            <h2 class="text-lg font-semibold">Red Raven</h2>
+                      <!-- Logout Button -->
+            <UButton 
+              color="gray" 
+              variant="solid" 
+              icon="i-mdi-logout-variant" 
+              class="p-2 mt-3" @click="">
+              Logout
+            </UButton>
+            <UButton
+              color="gray"
+              variant="ghost"
+              size="sm"
+              icon="i-heroicons-x-mark-20-solid"
+              class="sm:hidden z-10"
+              square
+              padded
+              @click="isOpen = false"/>
+          </div>
+        </template>
 
-        <!-- Non-Admin Nav Links -->
-        <UVerticalNavigation :links="links" @click="isOpen = false" class="mb-2" />
-        <UDivider />
-
-        <!-- Admin Nav Links -->
-        <UVerticalNavigation v-if="isAdmin" :links="adminLinks" @click="isOpen = false" class="mt-2 mb-2" />
-        <UDivider />
-
-        <!-- Dev Nav Links -->
-        <UVerticalNavigation v-if="isDev" :links="devLinks" @click="isOpen = false" class="mt-2" />
-
-        <!-- Logout Button -->
-        <UButton color="gray" variant="solid" icon="i-mdi-logout-variant" class="p-2 mt-3" @click="logout">
-          Logout
-        </UButton>
-      </div>
+        <!-- Body content with categorized navigation links -->
+        <div class="p-4 flex-1 space-y-4">
+          <UDivider label="Navigation" />
+          <UVerticalNavigation :links="navigationLinks" @click="isOpen = false" class="mb-2" />
+          
+          <UDivider label="Businesses" />
+          <UVerticalNavigation :links="businessLinks" @click="isOpen = false" class="mb-2" />
+          
+          <UDivider label="Documentation" />
+          <UVerticalNavigation :links="applicationLinks" @click="isOpen = false" class="mb-2" />
+          
+          <!-- Admin Links -->
+          <UDivider label="Admin Panel [Actualy Hidden]" />
+          <!-- <UVerticalNavigation v-if="isAdmin" :links="adminLinks" @click="isOpen = false" class="mt-2 mb-2" /> -->
+          <UVerticalNavigation :links="adminLinks" @click="isOpen = false" class="mt-2 mb-2" />
+          
+          <!-- Dev Links -->
+          <UDivider label="Development Panel [Actualy Hidden]" />
+          <!-- <UVerticalNavigation v-if="isDev" :links="devLinks" @click="isOpen = false" class="mt-2" /> -->
+          <UVerticalNavigation :links="devLinks" @click="isOpen = false" class="mt-2" />
+        </div>
+        <!-- Footer slot -->
+        <!-- <template #footer>
+          <Placeholder class="h-8" />
+        </template> -->
+      </UCard>
     </USlideover>
   </div>
-  <UNotifications />
 </template>
 
-<style scoped>
-.button-container {
-  display: flex;
-  justify-content: flex-end; /* Aligns the button to the right */
-  padding-right: 16px; /* Add some right padding if needed */
-}
-
-UButton {
-  color: white;
-}
-</style>
+<style scoped></style>

@@ -5,8 +5,6 @@
         <h1>Dashboard</h1>
         <p>Welcome to the dashboard</p>
     </div>
-
-    <AppFooter />
 </template>
 
 <style lang="css">
@@ -29,7 +27,6 @@
         margin: 8px 0;
         border: none;
         cursor: pointer;
-        width: 100%;
     }
     button:hover {
         opacity: 0.8;

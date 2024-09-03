@@ -1,7 +1,7 @@
 <script setup="ts">
     // import type { FormError, FormSubmitEvent } from '#ui/types'
     import { ref, reactive } from 'vue'
-    import { createClient } from '@supabase/supabase-js'
+    // import { createClient } from '@supabase/supabase-js'
 
     // export const supabase = createClient(supabaseUrl, supabaseKey)
 
@@ -11,10 +11,10 @@
       error: ''
     })
 
-    const supabaseUrl = useRuntimeConfig().supabaseUrl
-    const supabaseAnonKey = useRuntimeConfig().supabaseAnonKey
+    // const supabaseUrl = useRuntimeConfig().supabaseUrl
+    // const supabaseAnonKey = useRuntimeConfig().supabaseAnonKey
 
-    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+    // const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
 
     // const supabase = createClient(
