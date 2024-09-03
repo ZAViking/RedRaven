@@ -84,7 +84,7 @@
     if (validate()) {
         // Mock credentials for testing
         const mockEmail = 'Th3Spamm3r001@gmail.com';
-        const mockPassword = 'password123';
+        const mockPassword = 'R3dR@ven@123';
 
         if (state.email === mockEmail && state.password === mockPassword) {
         console.log('Mock login successful');
