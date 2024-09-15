@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
   ],
 
-  css: ['@/assets/css/main.css'],
+  css: ['@/assets/css/global.css'],
 
   ui: {
     primary: 'gray',
