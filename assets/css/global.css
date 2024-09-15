@@ -1,0 +1,145 @@
+/* global.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap');
+
+/* Reset CSS (optional, but recommended for consistency across browsers) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Global body styles */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0d0d0d; /* Dark background */
+    color: white; /* Default text color */
+  }
+  
+  /* Global link styles */
+  a {
+    text-decoration: none;
+    color: #ff0000;
+  }
+  
+  /* Global button styles */
+  button {
+    background-color: #0d0d0d;
+    color: white;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ff0000;
+  }
+  
+  /* Any additional global styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif; /* Replace with your preferred font */
+    font-weight: 800; /* ExtraBold weight */
+    font-style: italic; /* Italic style */
+}
+
+/* Global Heading Styles */
+  .section-heading, 
+  .economy-overview-heading, 
+  .factions-info-heading, 
+  .leaderboards-heading, 
+  .misc-features-heading, 
+  .news-events-heading, 
+  .police-crime-heading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+/* Global Sub-heading Styles */
+.sub-heading,
+.economy-sub-heading, 
+.factions-sub-heading, 
+.leaderboards-sub-heading, 
+.misc-sub-heading, 
+.news-sub-heading, 
+.police-sub-heading {
+  font-size: 1.5rem;
+  color: #ff0000;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Global Card Styles */
+.card {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  color: #333; /* Ensure text inside the card is a dark color */
+}
+
+/* Global Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.table th, .table td,
+.economy-trade-table th, .economy-trade-table td,
+.factions-criminal-table th, .factions-criminal-table td,
+.leaderboard-table th, .leaderboard-table td,
+.police-criminal-table th, .police-criminal-table td {
+  border: 1px solid #ff0000;
+  padding: 10px;
+  text-align: left;
+  color: #333; /* Dark text for readability */
+}
+
+.table th {
+  background-color: #333;
+  color: white;
+}
+
+.table td {
+  background-color: #f9fafb;
+  color: #333;
+}
+
+/* Specific Progress Bar Styling */
+.xp-progress-bar {
+  width: 100%;
+  height: 20px;
+  appearance: none;
+}
+
+.xp-progress-bar::-webkit-progress-bar {
+  background-color: #f3f4f6;
+  border-radius: 10px;
+}
+
+.xp-progress-bar::-webkit-progress-value {
+  background-color: #ff0000;
+  border-radius: 10px;
+}
+
+/* For Firefox */
+.xp-progress-bar::-moz-progress-bar {
+  background-color: #ff0000;
+  border-radius: 10px;
+}
+
+/* Notice and Announcement Styles */
+.notice-card-content, .announcement-card-content {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card p {
+  margin: 0 0 10px 0;
+}
+
+
+  
