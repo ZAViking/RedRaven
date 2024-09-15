@@ -9,9 +9,18 @@ export default defineNuxtConfig({
     // "@nuxt/image",
     // "@nuxt/scripts",
     // "@vueuse/nuxt",
+    '@nuxt/icon',
+    // '@nuxt/vue-toastification',
     "@nuxtjs/color-mode"
-    // '@morev/vue-transitions/nuxt'
   ],
+
+  runtimeConfig: {
+    public: {
+      SUPABASE_URL: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      SUPABASE_KEY: process.env.NUXT_PUBLIC_SUPABASE_KEY,
+      BASE_URL: process.env.BASE_URL,
+    },
+  },
 
   components: [
     {
@@ -22,12 +31,20 @@ export default defineNuxtConfig({
 
   css: ['@/assets/css/global.css'],
 
-  ui: {
-    primary: 'gray',
-    gray: 'cool',
-    themes: ['dark', 'light'],
-    icons: ["mdi", "simple-icons", "line-md", "heroicons"]
-  },
+  // toast: {
+  //   position: 'top-center',
+  //   register: [ // Register custom toasts
+  //     {
+  //       name: 'my-error',
+  //       message: 'Oops...Something went wrong',
+  //       options: {
+  //         type: 'error'
+  //       }
+  //     }
+  //   ]
+  // },
+
+  icon: ["mdi", "simple-icons", "line-md", "heroicons"],
 
   colorMode: {
     preference: "light",

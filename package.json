@@ -14,10 +14,12 @@
     "@nuxt/ui": "^2.18.4",
     "@supabase/supabase-js": "^2.45.2",
     "auth": "^1.1.1",
+    "axios": "^1.7.7",
     "discord": "^0.8.2",
     "nuxt": "^3.13.0",
     "supabase": "^1.190.0",
     "toast": "^0.5.4",
+    "toastification": "^0.1.4",
     "utils": "^0.2.2",
     "vue": "latest"
   },
