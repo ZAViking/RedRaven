@@ -1,18 +1,60 @@
+// import { Icon } from "#build/components";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: false },
+  devtools: { enabled: true },
+  typescript: { strict: false },
+  github: {
+    repo: 'nuxt-modules/supabase',
+  },
 
   modules: [
-    "@nuxt/ui",
+    // '@nuxt/content',
+    '@nuxt/ui',
+    '@nuxt/Icon',
+    // '@nuxtjs/fontaine',
+    "@nuxtjs/color-mode"
     // "@nuxtjs/supabase",
     // "@nuxt/image",
     // "@nuxt/scripts",
     // "@vueuse/nuxt",
-    '@nuxt/icon',
     // '@nuxt/vue-toastification',
-    "@nuxtjs/color-mode"
   ],
+
+  supabase: {
+    // cookieOptions: {
+    //   name: 'test',
+    //   maxAge: 60 * 60,
+    //   sameSite: 'strict',
+    //   secure: false,
+    // },
+    // clientOptions: {
+    //   auth: {
+    //     flowType: 'implicit',
+    //   },
+    // },
+    // redirect: true,
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      // include: ['/protected'],
+      exclude: ['/unprotected', '/public/*'],
+    },
+  },
+
+  
+  ui: {
+    icons: ["mdi", "simple-icons", "line-md", "heroicons"],
+  },
+  // Fonts
+  fontMetrics: {
+    fonts: ['DM Sans'],
+  },
+
+  colorMode: {
+    preference: "light",
+  },
 
   runtimeConfig: {
     public: {
@@ -30,25 +72,6 @@ export default defineNuxtConfig({
   ],
 
   css: ['@/assets/css/global.css'],
-
-  // toast: {
-  //   position: 'top-center',
-  //   register: [ // Register custom toasts
-  //     {
-  //       name: 'my-error',
-  //       message: 'Oops...Something went wrong',
-  //       options: {
-  //         type: 'error'
-  //       }
-  //     }
-  //   ]
-  // },
-
-  icon: ["mdi", "simple-icons", "line-md", "heroicons"],
-
-  colorMode: {
-    preference: "light",
-  },
 
   devServer: {
     // https: {
@@ -70,13 +93,14 @@ export default defineNuxtConfig({
   // },
   // POES WEET NIET WAT DIT IS
 
-  // runtimeConfig: {
-  //   // Keys within public are also exposed client-side
-  //   public: {
-  //     supabaseUrl: process.env.SUPABASE_URL,
-  //     supabaseKey: process.env.SUPABASE_KEY,
-  //   },
-  // },
+  runtimeConfig: {
+    // Keys within public are also exposed client-side
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY,
+    },
+  },
+  
   $production: {
     routeRules: {
       '/**': { isr: true }
