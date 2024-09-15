@@ -1,8 +1,9 @@
 <template>
-  <header class="header flex justify-between items-center p-4">
-    <span class="text-lg font-semibold">Red Raven RP</span>
-    <ColorToggle />
+  <header class="header-container">
+    <img src="@/assets/images/redravenName_05KT.png" alt="Red Raven Logo" class="logo-image">
+    <!-- <p class="dashboard-text">Dashboard</p> -->
   </header>
+  <ColorToggle class="circle-hover" />
 </template>
 
 <script lang="js">
@@ -67,26 +68,28 @@ import ColorToggle from './ColorToggle.vue';
 //   })
 </script>
 
-<style>
-  .header {
-    background-color: #444;
-    color: #fff;
-    text-align: center;
-    padding: 15px 0;
-    font-size: 0.9em;
-    border-top: 1px solid #333;
-    width: 100%; /* Ensure the footer takes full width */
-    position: bottom; /* Sticky footer at the bottom */
-    bottom: 0;
+<style scoped>
+  /* Container for the header */
+  .header-container {
+    display: flex;
+    justify-content: space-between; /* Space between image and text */
+    align-items: center; /* Center the content vertically */
+    padding: 1rem;
+    background-color: #0d0d0d; /* Darker shade of black */
+    border-bottom: 2px solid #ff0000; /* Red bottom border for header */
+    height: 100px; /* Height of the header */
+    width: 100%; /* Take full width of the screen */
+    position: relative;
   }
 
-  img {
-    width: 300px; 
-    height: auto; 
-    position: relative; 
-    z-index: 1000; 
+  /* Logo image styling */
+  .logo-image {
+    max-width: 150px; /* Adjust the size as needed */
+    height: auto;
+    margin-left: 20px; /* Space between the image and the left edge */
   }
 
+  /* Positioning for ColorToggle, floating in the bottom right */
   .circle-hover {
     position: fixed; 
     bottom: 20px; 
