@@ -20,21 +20,22 @@
   ];
 
   const businessLinks = [
-    { label: 'Police SOP', icon: 'i-heroicons-calendar', to: '/' },
-    { label: 'EMS SOP', icon: 'i-heroicons-calendar', to: '/' },
-    { label: 'Fast Customs', icon: 'i-heroicons-calendar', to: '/fast-customs' },
-    { label: 'Burger Shop', icon: 'i-heroicons-calendar', to: '/' },
+    { label: 'Police SOP', icon: 'i-heroicons-calendar', to: '/business-info/police-sop' },
+    { label: 'EMS SOP', icon: 'i-heroicons-calendar', to: '/business-info/ems-sop' },
+    { label: 'Fast Customs', icon: 'i-heroicons-calendar', to: '/business-info/fast-customs' },
+    { label: 'Burger Shop', icon: 'i-heroicons-calendar', to: '/business-info/burgershop' },
   ];
 
   const applicationLinks = [
-    { label: 'Apply for Whitelisting', icon: 'i-heroicons-book-open', to: '/' },
+    { label: 'Apply for Whitelisting', icon: 'i-heroicons-book-open', to: '/applications/whitelisting' },
+    { label: 'Apply for a Business', icon: 'i-heroicons-book-open', to: '/applications/business-applications' },
     { label: '1 of 1 Cars Terms and Conditions', icon: 'i-heroicons-book-open', to: '/documents/1of1tandc' },
   ];
 
   const adminLinks = [
-    { label: 'Whitelist Application Docs', icon: 'i-heroicons-book-open', to: '/whitelist' },
-    { label: 'Business Application Docs', icon: 'i-heroicons-book-open', to: '/' },
-    { label: 'Gang Application Docs', icon: 'i-heroicons-book-open', to: '/' },
+    { label: 'Whitelist Application Docs', icon: 'i-heroicons-book-open', to: 'documents/whitelisterinterviews' },
+    { label: 'Business Application Docs', icon: 'i-heroicons-book-open', to: '/documents/business-docs' },
+    { label: 'Gang Application Docs', icon: 'i-heroicons-book-open', to: '/documents/gang-docs' },
   ];
 
   const devLinks = [
@@ -51,16 +52,16 @@
   const welcomeMessage = computed(() => `Welcome, ${user.value.name}`);
 
 // Logout function
-// const logout = async () => {
-//   console.log('Logging out');
-//   const { error } = await supabase.auth.signOut();
-//   if (error) {
-//     console.error('Error logging out:', error.message);
-//   } else {
-//     console.log('Logged out successfully');
-//     router.push('/login');
-//   }
-// };
+const logout = async () => {
+  // console.log('Logging out');
+  // const { error } = await supabase.auth.signOut();
+  // if (error) {
+    // console.error('Error logging out:', error.message);
+  // } else {
+    // console.log('Logged out successfully');
+    router.push('/login');
+  // }
+};
 
 // Get admin status
 // const getAdminStatus = async () => {

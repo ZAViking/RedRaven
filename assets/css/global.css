@@ -48,7 +48,8 @@
   .leaderboards-heading, 
   .misc-features-heading, 
   .news-events-heading, 
-  .police-crime-heading {
+  .police-crime-heading,
+  .application-form-heading {
     font-size: 2rem;
     color: #333;
     margin-bottom: 20px;

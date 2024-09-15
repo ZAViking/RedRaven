@@ -1,5 +1,6 @@
 <template>
   <div class="page-container">
+    <br>
     <!-- Footer -->
     <footer class="footer">
       <p>&copy; 2024 Car and Category Search. All rights reserved.</p>
@@ -19,4 +20,5 @@
   border-top: 1px solid #333;
   width: 100%; /* Ensure the footer takes full width */
 }
+
 </style>
