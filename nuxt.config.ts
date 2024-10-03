@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   modules: [
     // '@nuxt/content',
     '@nuxt/ui',
-    '@nuxt/Icon',
+    // '@nuxt/Icon',
     // '@nuxtjs/fontaine',
     "@nuxtjs/color-mode"
     // "@nuxtjs/supabase",
