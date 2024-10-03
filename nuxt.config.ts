@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     // },
     // redirect: true,
     redirectOptions: {
-      login: '/login',
+      login: '/dashboard',
       callback: '/confirm',
       // include: ['/protected'],
       exclude: ['/unprotected', '/public/*'],
