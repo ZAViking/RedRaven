@@ -1,6 +1,3 @@
-// import { Icon } from "#build/components";
-
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
@@ -23,18 +20,6 @@ export default defineNuxtConfig({
   ],
 
   supabase: {
-    // cookieOptions: {
-    //   name: 'test',
-    //   maxAge: 60 * 60,
-    //   sameSite: 'strict',
-    //   secure: false,
-    // },
-    // clientOptions: {
-    //   auth: {
-    //     flowType: 'implicit',
-    //   },
-    // },
-    // redirect: true,
     redirectOptions: {
       login: '/dashboard',
       callback: '/confirm',
@@ -80,25 +65,6 @@ export default defineNuxtConfig({
     // },
     // port: 8080,
     // host: "0.0.0.0",
-  },
-
-  // supabase: {
-  //   supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
-  //   supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_KEY,
-  //   redirectOptions: {
-  //     login: "/login",
-  //     callback: "/confirm",
-  //     cookieRedirect: true,
-  //   },
-  // },
-  // POES WEET NIET WAT DIT IS
-
-  runtimeConfig: {
-    // Keys within public are also exposed client-side
-    public: {
-      supabaseUrl: process.env.SUPABASE_URL,
-      supabaseKey: process.env.SUPABASE_KEY,
-    },
   },
   
   $production: {
