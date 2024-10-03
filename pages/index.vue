@@ -15,7 +15,7 @@
 
   const router = useRouter()
   const userPreferencesCookie = useCookie('user-preferences')
-  const user = useSupabaseUser()
+  // const user = useSupabaseUser()
   // const supabase = useSupabaseClient()
   
   onMounted(async () => {
