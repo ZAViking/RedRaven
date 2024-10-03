@@ -45,12 +45,8 @@
   </div>
 </template>
 
-<script setup lang="ts">
-  import { reactive } from 'vue';
-  import { useRouter } from 'vue-router'; 
-
+<script setup>
   const router = useRouter();
-
   const state = reactive({
       email: '',
       password: '',
@@ -60,7 +56,7 @@
       },
   });
 
-  const validate = () => {
+  function validate () {
       let isValid = true;
       state.errors.email = '';
       state.errors.password = '';
@@ -84,7 +80,7 @@
       return isValid;
   };
 
-  const onSubmit = () => {
+  function onSubmit  () {
       if (validate()) {
           const mockEmail = 'Th3Ghost@gmail.com';
           const mockPassword = 'Sherlock123';
@@ -101,7 +97,7 @@
       }
   };
 
-  const loginWithDiscord = () => {
+  function loginWithDiscord () {
       console.log('Login with Discord clicked');
   };
 </script>
