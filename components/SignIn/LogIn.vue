@@ -34,7 +34,6 @@
                       type="button" 
                       @click="loginWithDiscord" 
                       class="discord-login"
-                      icon="i-heroicons-arrow-left-end-on-rectangle"
                   >
                       Login with Discord
                   </UButton>
