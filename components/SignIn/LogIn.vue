@@ -47,7 +47,7 @@
 
 <script setup>
   const router = useRouter();
-  const supabase = useSupaBaseClient()
+  const supabase = useSupabaseClient()
   const state = reactive({
       email: '',
       password: '',
