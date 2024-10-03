@@ -34,6 +34,7 @@
                       type="button" 
                       @click="loginWithDiscord" 
                       class="discord-login"
+                      icon="i-heroicons-arrow-left-end-on-rectangle"
                   >
                       Login with Discord
                   </UButton>
@@ -98,7 +99,12 @@
   };
 
   function loginWithDiscord () {
-      console.log('Login with Discord clicked');
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'github',
+        options: {
+          redirectTo: 'https://redraven-rp.vercel.app/dashboard'
+        }
+      })
   };
 </script>
 
